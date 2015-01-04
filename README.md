@@ -1,0 +1,1 @@
+A small utility to test RavenDB's performance on different production hardware configurations.
