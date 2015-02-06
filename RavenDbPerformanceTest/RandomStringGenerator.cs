@@ -5,7 +5,7 @@ namespace RavenDbPerformanceTest
 {
     public class RandomStringGenerator
     {
-        private static readonly Random Random = new Random();
+        private static readonly Random Random = new Random(42);
 
         public static string RandomString(int size)
         {

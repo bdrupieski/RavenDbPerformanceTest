@@ -67,7 +67,7 @@ namespace RavenDbPerformanceTest
                 options.Parse(args);
             }
             
-            Console.WriteLine("Running with {0} {1} and {2} {3}", 
+            Console.WriteLine("Running with {0} {1} and {2} {3}... please wait.", 
                 indexCount, indexCount == 1 ? "index" : "indexes",
                 documentCount, documentCount == 1 ? "document" : "documents");
 
@@ -128,7 +128,6 @@ namespace RavenDbPerformanceTest
             Console.WriteLine(report);
             
             File.AppendAllText("output.txt", report);
-            Console.WriteLine();
             Console.WriteLine("Results saved in output.txt.");
             Console.WriteLine();
 
@@ -178,7 +177,7 @@ namespace RavenDbPerformanceTest
         {
             var firstNames = File.ReadAllLines(Path.Combine("Names", "FirstNames.txt"));
             var lastNames = File.ReadAllLines(Path.Combine("Names", "LastNames.txt"));
-            var r = new Random();
+            var r = new Random(42);
 
             for (int i = 0; i < count; i++)
             {
