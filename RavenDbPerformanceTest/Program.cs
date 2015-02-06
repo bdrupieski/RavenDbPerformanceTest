@@ -17,6 +17,32 @@ namespace RavenDbPerformanceTest
     {
         private static void Main(string[] args)
         {
+            var s = @"
+                                                 ,::::.._
+                                               ,':::::::::.
+   RavenDB Performance Tester Tool         _,-'`:::,::(o)::`-,.._
+                                        _.', ', `:::::::::;'-..__`.
+                                   _.-'' ' ,' ,' ,\:::,'::-`'''
+                               _.-'' , ' , ,'  ' ,' `:::/
+                         _..-'' , ' , ' ,' , ,' ',' '/::
+                 _...:::'`-..'_, ' , ,'  , ' ,'' , ,'::|
+              _`.:::::,':::::,'::`-:..'_',_'_,'..-'::,'|
+      _..-:::'::,':::::::,':::,':,'::,':::,'::::::,':::;
+        `':,'::::::,:,':::::::::::::::::':::,'::_:::,'/
+        __..:'::,':::::::--''' `-:,':,':::'::-' ,':::/
+   _.::::::,:::.-''-`-`..'_,'. ,',  , ' , ,'  ', `','
+ ,::SSt:''''`                 \:. . ,' '  ,',' '_,'
+                               ``::._,'_'_,',.-'
+                                   \\ \\
+                                    \\_\\
+                                     \\`-`.-'_
+                                  .`-.\\__`. ``
+                                     ``-.-._
+                                         `
+";
+
+            Console.WriteLine(s);
+
             MiniProfiler.Settings.ProfilerProvider = new SingletonProfilerProvider();
             MiniProfiler.Start("RavenDB Benchmark");
 
@@ -100,7 +126,11 @@ namespace RavenDbPerformanceTest
                 Environment.CommandLine + Environment.NewLine +
                 MiniProfiler.Current.RenderPlainText() + Environment.NewLine + Environment.NewLine;
             Console.WriteLine(report);
+            
             File.AppendAllText("output.txt", report);
+            Console.WriteLine();
+            Console.WriteLine("Results saved in output.txt.");
+            Console.WriteLine();
 
             while (true)
             {
