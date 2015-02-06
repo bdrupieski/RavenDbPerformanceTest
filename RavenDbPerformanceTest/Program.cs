@@ -43,9 +43,6 @@ namespace RavenDbPerformanceTest
 
             Console.WriteLine(s);
 
-            MiniProfiler.Settings.ProfilerProvider = new SingletonProfilerProvider();
-            MiniProfiler.Start("RavenDB Benchmark");
-
             int indexCount = 100;
             int documentCount = 4000;
 
@@ -77,6 +74,9 @@ namespace RavenDbPerformanceTest
                 dir.Attributes = dir.Attributes & ~FileAttributes.ReadOnly;
                 dir.Delete(true);
             }
+
+            MiniProfiler.Settings.ProfilerProvider = new SingletonProfilerProvider();
+            MiniProfiler.Start("RavenDB Benchmark");
 
             var documentStore = new EmbeddableDocumentStore
             {
