@@ -7,6 +7,7 @@ using Raven.Abstractions.Data;
 using Raven.Client;
 using Raven.Client.Embedded;
 using Raven.Client.Linq;
+using Raven.Database.Server;
 using RavenDbPerformanceTest.Entities;
 using RavenDbPerformanceTest.Indexes;
 using StackExchange.Profiling;
@@ -83,6 +84,8 @@ namespace RavenDbPerformanceTest
                 DataDirectory = "Data",
                 UseEmbeddedHttpServer = true,
             };
+
+            NonAdminHttp.EnsureCanListenToWhenInNonAdminContext(8080);
 
             using (MiniProfiler.Current.Step("Initializing DocumentStore"))
             {
