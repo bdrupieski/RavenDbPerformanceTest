@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -18,7 +19,7 @@ namespace RavenDbPerformanceTest
     {
         private static void Main(string[] args)
         {
-            var s = @"
+            const string s = @"
                                                  ,::::.._
                                                ,':::::::::.
    RavenDB Performance Tester Tool         _,-'`:::,::(o)::`-,.._
@@ -226,7 +227,7 @@ namespace RavenDbPerformanceTest
                     .Take(10000)
                     .ToList();
 
-                Console.WriteLine("{0} documents", docs.Count);
+                Debug.WriteLine("{0} documents", docs.Count);
 
                 var docs2 = documentStore.OpenSession().Query<ClientApplication.IndexResult>(indexName)
                     .Where(x => (x.BirthDate < new DateTime(2000, 1, 1) && x.BirthDate > new DateTime(1990, 1, 1)) ||
@@ -235,7 +236,7 @@ namespace RavenDbPerformanceTest
                     .Take(10000)
                     .ToList();
 
-                Console.WriteLine("{0} documents", docs2.Count);
+                Debug.WriteLine("{0} documents", docs2.Count);
             }
         }
     }
