@@ -22,7 +22,7 @@ namespace RavenDbPerformanceTest
             const string s = @"
                                                  ,::::.._
                                                ,':::::::::.
-   RavenDB Performance Tester Tool         _,-'`:::,::(o)::`-,.._
+   RavenDB Performance Benchmark Tool      _,-'`:::,::(o)::`-,.._
                                         _.', ', `:::::::::;'-..__`.
                                    _.-'' ' ,' ,' ,\:::,'::-`'''
                                _.-'' , ' , ,'  ' ,' `:::/
